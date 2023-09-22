@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import java.awt.Font;
 
 public class FrmLogin extends JFrame implements ActionListener {
 
@@ -53,7 +54,7 @@ public class FrmLogin extends JFrame implements ActionListener {
 	public FrmLogin() {
 		setTitle("LOGIN CIBERTEC");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 523, 200);
+		setBounds(100, 100, 516, 200);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -61,6 +62,7 @@ public class FrmLogin extends JFrame implements ActionListener {
 		contentPane.setLayout(null);
 		
 		lblUsuario = new JLabel("USUARIO : ");
+		lblUsuario.setFont(new Font("Verdana", Font.BOLD, 12));
 		lblUsuario.setBounds(55, 48, 81, 13);
 		contentPane.add(lblUsuario);
 		
@@ -70,6 +72,7 @@ public class FrmLogin extends JFrame implements ActionListener {
 		txtUsuario.setColumns(10);
 		
 		lblClave = new JLabel("CLAVE : ");
+		lblClave.setFont(new Font("Verdana", Font.BOLD, 12));
 		lblClave.setBounds(55, 98, 81, 13);
 		contentPane.add(lblClave);
 		
@@ -82,6 +85,8 @@ public class FrmLogin extends JFrame implements ActionListener {
 		txtClave.setBounds(146, 95, 161, 19);
 		contentPane.add(txtClave);
 	}
+	
+	
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnIngresar) {
 			actionPerformedBtnIngresar(e);
@@ -124,10 +129,10 @@ public class FrmLogin extends JFrame implements ActionListener {
 		
 		if (lstUsuarios.isEmpty()) {                                              //--El metodo isEmpity() : Se usa para comprobar si la lista esta vacia
 		    // Si la lista está vacía, el usuario no fue encontrado en la base de datos
-		    avisoer("Usuario o contraseña incorrectos");
+		    avisoer("Usuario o contraseña incorrecta");
 		} else {
 		    // Si se encontró al menos un usuario, se permite el acceso
-		    aviso("BIENVENIDO" + " " + usuar);
+		    aviso("WELCOME" + " " + usuar);
 
 		    FrmManteProd mantenimiento = new FrmManteProd();
 		    mantenimiento.setVisible(true);
